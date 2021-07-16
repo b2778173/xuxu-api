@@ -7,14 +7,17 @@ var indexRouter = require("./routes/index");
 var apiRouter = require("./routes/api");
 var apiResponse = require("./helpers/apiResponse");
 var cors = require("cors");
+const colors = require("colors");
+
 
 // DB connection
 var MONGODB_URL = process.env.MONGODB_URL;
+const MONGODB_NAME = process.env.MONGODB_NAME;
 var mongoose = require("mongoose");
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
 	//don't show the log when it is test
 	if(process.env.NODE_ENV !== "test") {
-		console.log("Connected to %s", MONGODB_URL);
+		console.log(colors.green(`Connected to ${ MONGODB_NAME}` ));
 		console.log("App is running ... \n");
 		console.log("Press CTRL + C to stop the process. \n");
 	}
