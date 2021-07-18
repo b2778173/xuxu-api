@@ -1,10 +1,14 @@
-var express = require("express");
-var authRouter = require("./auth");
-var bookRouter = require("./book");
+const express = require("express");
+const authRouter = require("./auth");
+const bookRouter = require("./book");
+const productRouter = require("./product");
 
-var app = express();
+
+const app = express();
 
 app.use("/auth/", authRouter);
 app.use("/book/", bookRouter);
+app.use("/product/", productRouter);
+
 
 module.exports = app;
