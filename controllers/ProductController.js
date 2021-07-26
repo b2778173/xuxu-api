@@ -24,7 +24,7 @@ const productList = async (req, res) => {
     }
     const list = await Product.find({})
       .limit(page ? 5 : 0)
-      .skip((page - 1) * 5);
+      .skip((page ? page - 1 : 0) * 5);
     list.total = list.length;
     return apiResponse.successResponseWithData(res, "Operation success", list);
   } catch (err) {
