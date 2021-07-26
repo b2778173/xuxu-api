@@ -1,3 +1,6 @@
+const logger = require("debug")("Res");
+
+
 exports.successResponse = function(res, msg) {
     const data = {
         status: 1,
@@ -10,13 +13,14 @@ exports.successResponseWithData = function(res, msg, data) {
     const resData = {
         status: 1,
         message: msg,
-        data: data
+        data: data,
+        count : Array.isArray(data) ? data.length : undefined
     };
     return res.status(200).json(resData);
 };
 
 exports.ErrorResponse = function(res, err) {
-    console.log(err);
+    logger(err);
     const data = {
         status: 0,
         message: err.message,

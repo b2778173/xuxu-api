@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
+    "dev": "set DEBUG=Req,Res & nodemon ./bin/www",
     "test": "nyc _mocha --timeout 10000 --exit --report lcovonly -- -R spec",
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\""
   },
@@ -15,11 +15,12 @@
     "colors": "^1.4.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
+    "debug": "^4.3.2",
     "dotenv": "^8.2.0",
     "express": "~4.16.0",
     "express-jwt": "^5.3.1",
     "express-validator": "^6.2.0",
+    "firebase-admin": "^9.11.0",
     "jsonwebtoken": "^8.5.1",
     "mocha-lcov-reporter": "^1.3.0",
     "moment": "^2.24.0",
